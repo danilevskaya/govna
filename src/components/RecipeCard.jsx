@@ -10,7 +10,7 @@ import {
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import FavoriteButton from "./FavoriteButton";
 import LikeButton from "./LikeButton";
-import Category from './Category';
+import Category from "./Category";
 
 function RecipeCard({
   title,
@@ -22,11 +22,14 @@ function RecipeCard({
   favorites,
 }) {
 
-
+  
   return (
     <Card sx={{ padding: 2 }}>
-      <Typography variant="h5" sx={{ textDecoration: "underline", mb: 1 }}>
-        <b>{title}</b>
+      <Typography
+        variant="h5"
+        sx={{ textDecoration: "underline", mb: 1, fontWeight: "bold" }}
+      >
+        {title}
       </Typography>
 
       <CardMedia
@@ -42,8 +45,7 @@ function RecipeCard({
         }}
       />
 
-      <Category text={category}/>  
-
+      <Category text={category || "не указано"} />
 
       <CardContent>
         <Typography sx={{ mt: 1 }}>{description}</Typography>
@@ -55,7 +57,6 @@ function RecipeCard({
           Опубликовано: {new Date(published).toLocaleDateString("ru-RU")}
         </Typography>
       </CardContent>
-
 
       <CardActions sx={{ justifyContent: "space-between" }}>
         <Button size="small" color="inherit">
