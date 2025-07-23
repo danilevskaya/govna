@@ -1,16 +1,7 @@
 import React from "react";
-import {
-  Card,
-  CardMedia,
-  CardContent,
-  CardActions,
-  Typography,
-  Button,
-} from "@mui/material";
-import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
-import FavoriteButton from "./FavoriteButton";
-import LikeButton from "./LikeButton";
+import { Card, CardMedia, CardContent, Typography } from "@mui/material";
 import Category from "./Category";
+import FooterCard from "./FooterCard";
 
 function RecipeCard({
   title,
@@ -21,8 +12,6 @@ function RecipeCard({
   likes,
   favorites,
 }) {
-
-  
   return (
     <Card sx={{ padding: 2 }}>
       <Typography
@@ -54,17 +43,11 @@ function RecipeCard({
           color="text.secondary"
           sx={{ mt: 2, display: "block" }}
         >
-          Опубликовано: {new Date(published).toLocaleDateString("ru-RU")}
+          Опубликовано: 1.01.2001
         </Typography>
       </CardContent>
 
-      <CardActions sx={{ justifyContent: "space-between" }}>
-        <Button size="small" color="inherit">
-          <QuestionAnswerIcon />
-        </Button>
-        <FavoriteButton initialCount={favorites} />
-        <LikeButton initialCount={likes} />
-      </CardActions>
+      <FooterCard likes={likes} favorites={favorites} />
     </Card>
   );
 }
